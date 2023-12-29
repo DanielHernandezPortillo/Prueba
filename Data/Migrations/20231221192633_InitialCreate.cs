@@ -22,6 +22,18 @@ namespace DatingApp.Data.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
+
+            migrationBuilder.AddColumn<byte[]>(
+                name: "PasswordHash",
+                table: "Users",
+                type: "BLOB",
+                nullable: true);
+
+            migrationBuilder.AddColumn<byte[]>(
+                name: "PasswordSalt",
+                table: "Users",
+                type: "BLOB",
+                nullable: true);
         }
 
         /// <inheritdoc />
@@ -29,6 +41,8 @@ namespace DatingApp.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Users");
+            
+          
         }
     }
 }
